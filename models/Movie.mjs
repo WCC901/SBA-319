@@ -7,6 +7,11 @@ const movieSchema = new Schema({
         releaseYear: {type: Number, required: true},
         plot: String,
         rated: String,
+        audienceRating: {
+                type: Number,
+                min: 0,
+                max: 100 
+        }
 
 });
 
