@@ -18,3 +18,12 @@ router.patch("/:id", async (req, res) => {
     }
     res.status(200).json(updatedScore);
 });
+
+// Delete a movie entry
+router.delete("/:id", async (req, res) => {
+    const result = await Movie.findByIdAndDelete(req.params.id)
+    res.status(204).json({data: `${result.title} was deleted.`});
+    if (!result) {
+        res.send("Movie not found").status(404);
+    };
+});
